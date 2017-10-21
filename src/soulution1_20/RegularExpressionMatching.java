@@ -1,3 +1,5 @@
+package soulution1_20;
+
 import java.util.HashMap;
 
 /**

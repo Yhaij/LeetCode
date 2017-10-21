@@ -1,3 +1,5 @@
+package soulution1_20;
+
 import java.util.*;
 
 /**
@@ -50,8 +52,4 @@ public class ThreeSum {
         quickSort(nums, low+1, end);
     }
 
-    public static void main (String args[]){
-        int[] nums = {-1, 0, 1, 2, -1, -4};
-
-    }
 }

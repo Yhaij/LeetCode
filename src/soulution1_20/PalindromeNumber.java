@@ -1,3 +1,5 @@
+package soulution1_20;
+
 /**
  * Created by yhj on 2017/9/29.
  */

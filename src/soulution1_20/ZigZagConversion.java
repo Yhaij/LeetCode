@@ -1,3 +1,5 @@
+package soulution1_20;
+
 /**
  * Created by yhj on 2017/9/23.
  */
@@ -25,8 +27,4 @@ public class ZigZagConversion {
         return result.toString();
     }
 
-    public static void main(String[] args){
-        ZigZagConversion zigZagConversion = new ZigZagConversion();
-        System.out.println(zigZagConversion.convert("PAYPALISHIRING", 3));
-    }
 }

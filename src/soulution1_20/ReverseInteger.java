@@ -1,3 +1,5 @@
+package soulution1_20;
+
 /**
  * Created by yhj on 2017/9/23.
  */
@@ -14,8 +16,5 @@ public class ReverseInteger {
             x = x/10;
         }
         return result;
-    }
-    public static void main(String[] args){
-        System.out.println(ReverseInteger.reverse(1463847412));
     }
 }

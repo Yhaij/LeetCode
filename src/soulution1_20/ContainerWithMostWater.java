@@ -1,3 +1,5 @@
+package soulution1_20;
+
 /**
  * Created by yhj on 2017/10/8.
  */
@@ -25,8 +27,4 @@ public class ContainerWithMostWater {
         return mArea;
     }
 
-    public static void main(String args[]){
-        int[] height = {1,1};
-        System.out.println(new ContainerWithMostWater().maxArea(height));
-    }
 }

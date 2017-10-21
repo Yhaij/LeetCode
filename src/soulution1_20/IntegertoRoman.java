@@ -1,3 +1,5 @@
+package soulution1_20;
+
 /**
  * Created by yhj on 2017/10/8.
  */
@@ -15,9 +17,5 @@ public class IntegertoRoman {
             }
         }
         return sb.toString();
-    }
-
-    public static void main(String args[]){
-        System.out.println(new IntegertoRoman().intToRoman(3999));
     }
 }

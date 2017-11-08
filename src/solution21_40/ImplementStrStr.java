@@ -28,7 +28,7 @@ public class ImplementStrStr {
         int k = -1;
         int next[] = new int[pattern.length()];
         next[0] = -1;
-        for(int i = 0;i<pattern.length();i++){
+        for(int i = 1;i<pattern.length();i++){
             while (k > -1 && pattern.charAt(k+1) != pattern.charAt(i)){
                 k = next[k];
             }

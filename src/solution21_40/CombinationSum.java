@@ -28,6 +28,7 @@ public class CombinationSum {
 
         for(int i = start;i < candidates.length;i++){
             value.add(candidates[i]);
+            //i是为了使用重复元素，i+1是不能使用重复元素
             find(result, value, candidates, target-candidates[i], i);
             value.remove(value.size()-1);
         }

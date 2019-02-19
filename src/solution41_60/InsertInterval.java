@@ -23,33 +23,55 @@ public class InsertInterval {
         }
     }
     public List<Interval> insert(List<Interval> intervals, Interval newInterval) {
-        List<Interval> result = new ArrayList<>();
-        int i = 0;
-        while (i < intervals.size()){
-            Interval each = intervals.get(i);
-            if(each.end < newInterval.start){
-                result.add(each);
-                i++;
-            }else {
-                newInterval.start = Math.min(each.start, newInterval.start);
-                newInterval.end = Math.max(each.end, newInterval.end);
-                break;
+        List<Interval> result = new ArrayList<Interval>();
+        for(Interval current : intervals) {
+            if(current.end < newInterval.start) result.add(current);
+            else if(current.start > newInterval.end) {
+                result.add(newInterval);
+                newInterval = current;
+            } else if(current.start <= newInterval.start || current.end >= newInterval.end) {
+                Interval freshInterval = new Interval(Math.min(current.start, newInterval.start), Math.max(current.end, newInterval.end));
+                newInterval = freshInterval;
             }
         }
-        while (i < intervals.size()-1){
-            Interval each = intervals.get(i+1);
-            if(each.start > newInterval.end){
-                newInterval.end = Math.max(intervals.get(i).end, newInterval.end);
-                break;
-            }
-            i++;
-        }
-        i++;
         result.add(newInterval);
-        while (i < intervals.size()){
-            result.add(intervals.get(i));
-            i++;
-        }
         return result;
     }
+
+
+//    public List<Interval> insert(List<Interval> intervals, Interval newInterval) {
+//        List<Interval> result = new ArrayList<>();
+//        int i = 0;
+//        while (i < intervals.size()){
+//            Interval each = intervals.get(i);
+//            if(each.end < newInterval.start){
+//                result.add(each);
+//            }else {
+//                break;
+//            }
+//            i++;
+//        }
+//
+//
+//        while (i < intervals.size()){
+//            Interval each = intervals.get(i);
+//            if(each.start > newInterval.end){
+//                break;
+//            }else {
+//                if(each.start < newInterval.start){
+//                    newInterval.start = each.start;
+//                }
+//                if(each.end > newInterval.end){
+//                    newInterval.end = each.end;
+//                }
+//            }
+//            i++;
+//        }
+//        result.add(newInterval);
+//        while (i < intervals.size()){
+//            result.add(intervals.get(i));
+//            i++;
+//        }
+//        return result;
+//    }
 }

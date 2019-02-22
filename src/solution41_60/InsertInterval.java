@@ -25,27 +25,33 @@ public class InsertInterval {
     public List<Interval> insert(List<Interval> intervals, Interval newInterval) {
         List<Interval> result = new ArrayList<>();
         int i = 0;
+        //首先添加end小于newInterval.start的元素
         while (i < intervals.size()){
             Interval each = intervals.get(i);
             if(each.end < newInterval.start){
                 result.add(each);
-                i++;
             }else {
-                newInterval.start = Math.min(each.start, newInterval.start);
-                newInterval.end = Math.max(each.end, newInterval.end);
-                break;
-            }
-        }
-        while (i < intervals.size()-1){
-            Interval each = intervals.get(i+1);
-            if(each.start > newInterval.end){
-                newInterval.end = Math.max(intervals.get(i).end, newInterval.end);
                 break;
             }
             i++;
         }
-        i++;
+        //将end小于newInterval.start的元素且start大于newInterval.end的元素，取最小的start和最大的end
+        while (i < intervals.size()){
+            Interval each = intervals.get(i);
+            if(each.start > newInterval.end){
+                break;
+            }else {
+                if(each.start < newInterval.start){
+                    newInterval.start = each.start;
+                }
+                if(each.end > newInterval.end){
+                    newInterval.end = each.end;
+                }
+            }
+            i++;
+        }
         result.add(newInterval);
+        //后续的start大于newInterval.end的元素直接添加
         while (i < intervals.size()){
             result.add(intervals.get(i));
             i++;

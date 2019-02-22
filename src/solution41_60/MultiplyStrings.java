@@ -2,7 +2,7 @@ package solution41_60;
 
 /**
  * @Author: yhj
- * @Description:
+ * @Description: 大整数相乘
  * @Date: Created in 21:53 2018/12/15
  * @Modified By:
  **/
@@ -16,7 +16,7 @@ public class MultiplyStrings {
             }
         }
 
-        //知道找到第一个高位部位0的数
+        //知道找到第一个高位不为0的数
         int index;
         for(index = value.length-1; index > 0 && value[index] == 0;index--);
 

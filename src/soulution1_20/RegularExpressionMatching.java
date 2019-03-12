@@ -6,41 +6,51 @@ import java.util.HashMap;
  * Created by yhj on 2017/9/30.
  */
 public class RegularExpressionMatching {
+    /**
+     * 动态规划求解
+     */
 //    public boolean isMatch(String s, String p) {
-//        if(p.length() == 0){
-//            return s.length() == 0?true:false;
+//        boolean[][] isMacth = new boolean[p.length()+1][s.length()+1];
+//        isMacth[0][0] = true;
+//        for(int i = 1; i <= s.length();i++){
+//            isMacth[0][i] = false;
 //        }
-//        int i = 0, j = 0;
-//        char pre = p.charAt(j);
-//        while(i < s.length() && j < p.length()){
-//            if(compareChar(s.charAt(i),p.charAt(j))){
-//                pre = p.charAt(j);
-//                i++;
-//                j++;
+//        for(int i = 1; i <= p.length();i++){
+//            if(p.charAt(i-1) == '*'){
+//                isMacth[i][0] = isMacth[i-2][0];
 //            }else {
-//                if(p.charAt(j) == '*'){
-//                    if(compareChar(s.charAt(i),pre)){
-//                        i++;
-//                    }else {
-//                        pre = p.charAt(j);
-//                        j++;
+//                isMacth[i][0] = false;
+//            }
+//        }
+//        for(int i = 1;i <= p.length();i++){
+//            if(p.charAt(i-1) == '*'){
+//                for(int j = 1; j <= s.length();j++){
+//                    if(compare(p.charAt(i-2), s.charAt(j-1))){
+//                        isMacth[i][j] = isMacth[i][j-1];
 //                    }
-//                }else {
-//                    if(j < p.length()-1 && p.charAt(j+1) != '*'){
-//                        return false;
+//                    isMacth[i][j] = isMacth[i-1][j] || isMacth[i-2][j] || isMacth[i][j];
+//                }
+//            }else {
+//                for(int j = 1; j <= s.length(); j++){
+//                    if (compare(p.charAt(i-1), s.charAt(j-1))){
+//                        isMacth[i][j] = isMacth[i-1][j-1];
 //                    }else {
-//                        pre = p.charAt(j);
-//                        j++;
+//                        isMacth[i][j] = false;
 //                    }
 //                }
 //            }
 //        }
-//        if(i == s.length() && (j == p.length() || (j >= p.length() - 2 && p.charAt(p.length()-1) == '*'))){
-//            return true;
-//        }else {
-//            return false;
-//        }
+//        return isMacth[p.length()][s.length()];
 //    }
+//
+//    public boolean compare(char a, char b){
+//        if(a == '.'){
+//            return true;
+//        }else
+//            return a == b;
+//    }
+
+
 
     private enum Result{
         TRUE, FALSE

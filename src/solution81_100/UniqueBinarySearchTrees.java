@@ -1,8 +1,5 @@
 package solution81_100;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * @Author: yhj
  * @Description: n的参数的答案分为 i= 1，2...n 时 i-1的左子树个数加上i+1到n的右子树个数
@@ -22,12 +19,5 @@ public class UniqueBinarySearchTrees {
             }
         }
         return p[n];
-    }
-
-    public class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-        TreeNode(int x) { val = x; }
     }
 }
